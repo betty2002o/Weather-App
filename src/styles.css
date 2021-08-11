@@ -1,0 +1,139 @@
+.edge {
+  margin: 20px auto;
+  padding: 30px;
+  border-radius: 30px;
+  border: 2px solid #5d9fff;
+  font-family: "Indie Flower", cursive;
+  font-size: 20px;
+  background: linear-gradient(-225deg, #5d9fff 0%, #b8dcff 60%, #6bbbff 90%);
+  color: white;
+}
+.sunny {
+  color: #fff134;
+  font-size: 30px;
+}
+
+.moon {
+  color: #e9e5cf;
+  font-size: 30px;
+}
+.cloud-sun {
+  font-size: 30px;
+  color: #ffd255;
+}
+
+.rain {
+  font-size: 30px;
+  color: #3346575e;
+}
+.city-location {
+  font-size: 40px;
+  margin-left: 20px;
+  font-weight: bold;
+}
+
+.date-time {
+  margin-left: 30px;
+}
+
+.current-temp-weather {
+  text-align: center;
+}
+.current-temp {
+  font-size: 50px;
+  height: 60px;
+  font-weight: bold;
+}
+
+.display-unit {
+  font-size: 50px;
+  height: 60px;
+  font-weight: bold;
+}
+
+.units {
+  font-size: 25px;
+  vertical-align: top;
+  text-decoration: none;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+a:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+.class-weather {
+  font-size: 30px;
+  padding: 0px;
+}
+
+.sunny-today {
+  font-size: 90px;
+  text-align: left;
+}
+
+.near-future {
+  text-align: center;
+  width: 100%;
+  position: relative;
+  top: -35px;
+  padding: 10px;
+  line-height: 40px;
+}
+
+.current-condition {
+  text-align: left;
+  line-height: 50px;
+  position: relative;
+  top: -20px;
+}
+
+.message-of-the-day {
+  font-family: "Caveat", cursive;
+  font-size: 25px;
+  text-align: center;
+  margin: 0, auto;
+  margin-bottom: 30px;
+  position: relative;
+  top: -10px;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.next-days {
+  text-align: center;
+  line-height: 40px;
+}
+
+.date {
+  font-weight: bold;
+}
+form {
+  line-height: 30px;
+  font-size: 20px;
+}
+.search-box {
+  background-color: rgb(255, 255, 255);
+  color: #fff;
+  opacity: 0.5;
+  color: blue;
+  border-radius: 20px;
+  text-align: center;
+  border: inset;
+  width: 250px;
+}
+
+button {
+  background: #6ea8fe;
+  color: white;
+  cursor: pointer;
+  border-radius: 20px;
+  width: 130px;
+  border: white;
+  padding-top: 5px;
+}
