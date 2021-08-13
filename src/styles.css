@@ -114,11 +114,6 @@ a:hover {
   font-weight: bold;
 }
 
-.next-days {
-  text-align: center;
-  line-height: 40px;
-}
-
 .date {
   font-weight: bold;
 }
@@ -168,4 +163,10 @@ button {
   border: 2px solid white;
   color: white;
   font-size: 25px;
+}
+
+.next-days {
+  text-align: center;
+  line-height: 40px;
+  font-size: 30px;
 }

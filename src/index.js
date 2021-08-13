@@ -151,6 +151,35 @@ function getLocation() {
 let clickCurrent = document.querySelector("#search-button-current");
 clickCurrent.addEventListener("click", getLocation);
 
+// forecast the next few days highest + lowest weather
+function displayForecast() {
+  let forecastElement = document.querySelector(".next-days");
+  forecastRow = `<div class="row">`;
+  let days = ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+  days.forEach(function (day) {
+    forecastRow =
+      forecastRow +
+      `
+  <div class="col-2">
+  <div class="tmr">
+    7/28
+    <br/>
+    ${day}
+    </div>
+    <img src="http://openweathermap.org/img/wn/10d@2x.png"
+    alt = "cloudy" class="tmr-weather-icon"/>
+    <div class="tmr-temp">
+    <span>23°C /</span>
+    <span> 15°C</span>
+    </div>
+    </div>
+        `;
+  });
+
+  forecastRow = forecastRow + `</div>`;
+  forecastElement.innerHTML = forecastRow;
+}
+
 //default: setting default city to Taipei
 
 function defaultCity(city) {
@@ -160,3 +189,4 @@ function defaultCity(city) {
 }
 
 defaultCity("Taipei");
+displayForecast();
