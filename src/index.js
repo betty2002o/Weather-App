@@ -50,7 +50,7 @@ function replaceLocation(event) {
 let clickSearch = document.querySelector("#search-button");
 clickSearch.addEventListener("click", replaceLocation);
 
-//replace current infomation
+//replace current information
 
 function replaceTemp(response) {
   let temp = Math.round(response.data.main.temp);
@@ -76,6 +76,12 @@ function replaceTemp(response) {
   let windSpeed = Math.round(response.data.wind.speed);
   currentWindSpeed.innerHTML = `${windSpeed}`;
 
+  let currentWeatherIcon = document.querySelector("#weather-icon");
+  currentWeatherIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+
   //let currentWindDirection = document.querySelector(".wind-direction");
   //let windDirection = response.data.wind.deg;
 
@@ -97,8 +103,8 @@ function converttoImperial(event) {
   let displayedUnit = document.querySelector(".display-unit");
   displayedUnit.innerHTML = `°F`;
 
-  let dispayWindUnit = document.querySelector(".wind-unit");
-  dispayWindUnit.innerHTML = `mi/h`;
+  let displayWindUnit = document.querySelector(".wind-unit");
+  displayWindUnit.innerHTML = `mi/h`;
 }
 
 function converttoMetric(event) {
@@ -111,8 +117,8 @@ function converttoMetric(event) {
   axios.get(weatherUrl).then(replaceTemp);
   let displayedUnit = document.querySelector(".display-unit");
   displayedUnit.innerHTML = `°C`;
-  let dispayWindUnit = document.querySelector(".wind-unit");
-  dispayWindUnit.innerHTML = `m/s`;
+  let displayWindUnit = document.querySelector(".wind-unit");
+  displayWindUnit.innerHTML = `m/s`;
 }
 
 let clickTempF = document.querySelector("#fahrenheit");

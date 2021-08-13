@@ -138,6 +138,11 @@ button {
   padding-top: 5px;
 }
 
+.credit {
+  font-size: 12px;
+  text-align: center;
+}
+
 .source-code {
   color: blue;
 }
