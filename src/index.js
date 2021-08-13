@@ -43,8 +43,6 @@ function replaceLocation(event) {
   let unit = "metric";
   let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchedLocation.value}&units=${unit}&appid=${key}`;
   axios.get(weatherUrl).then(replaceTemp);
-  let displayedUnit = document.querySelector(".display-unit");
-  displayedUnit.innerHTML = `°C`;
 }
 
 let clickSearch = document.querySelector("#search-button");
@@ -102,11 +100,12 @@ function converttoImperial(event) {
   let unit = "imperial";
   let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${key}`;
   axios.get(weatherUrl).then(replaceTemp);
-  let displayedUnit = document.querySelector(".display-unit");
-  displayedUnit.innerHTML = `°F`;
 
   let displayWindUnit = document.querySelector(".wind-unit");
   displayWindUnit.innerHTML = `mi/h`;
+
+  clickTempC.classList.remove("active");
+  clickTempF.classList.add("active");
 }
 
 function converttoMetric(event) {
@@ -117,10 +116,11 @@ function converttoMetric(event) {
   let unit = "metric";
   let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${key}`;
   axios.get(weatherUrl).then(replaceTemp);
-  let displayedUnit = document.querySelector(".display-unit");
-  displayedUnit.innerHTML = `°C`;
+
   let displayWindUnit = document.querySelector(".wind-unit");
   displayWindUnit.innerHTML = `m/s`;
+  clickTempC.classList.add("active");
+  clickTempF.classList.remove("active");
 }
 
 let clickTempF = document.querySelector("#fahrenheit");
@@ -150,8 +150,6 @@ function defaultCity(city) {
   let key = "83a749915ff8adf28c051c8c3b142608";
   let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`;
   axios.get(weatherUrl).then(replaceTemp);
-  let displayedUnit = document.querySelector(".display-unit");
-  displayedUnit.innerHTML = `°C`;
 }
 
 defaultCity("Taipei");

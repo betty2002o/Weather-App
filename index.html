@@ -69,11 +69,8 @@
               <span class="current-temp">
                 26
               </span>
-              <span class ="display-unit">
-                °C 
-              </span>
               <span class="units">
-                <a href="#" id="celsius">°C</a>
+                <a href="#" id="celsius" class="active">°C</a>
                  | 
                  <a href="#" id="fahrenheit">°F</a></span>
               <div class="class-weather">
@@ -82,10 +79,11 @@
             </div>
           </div>
           <div class="col-2">
-            <span class="today-weather-icon">
+            <span>
               <img src=""
               alt="sunny"
-              id ="weather-icon">
+              id ="weather-icon"
+              class="today-weather-icon">
             </span>
           </div>
           <div class="col-3">
@@ -93,6 +91,7 @@
               <div class="row">
                 <div class="col-12">
                   <div>
+                    <br />
                     Wind: 
                     <span class="wind-speed"> 11 </span>
                     <span class= "wind-direction"> SW </span>
@@ -102,11 +101,6 @@
                 <div class="col-12">
                   <div>
                     Humidity: <span class="current-condition-humidity"> 45 % </span>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="current-condition-pop">
-                    Precipitation: 1 %
                   </div>
                 </div>
               </div>
@@ -249,7 +243,6 @@
     </div>
     <p class= "credit"> <a href="https://github.com/betty2002o/Weather-App" target="_blank" class ="source-code">Open-source code</a> by Betty Chiang</p>
     
-
     
     <script src="src/index.js"></script>
   </body>

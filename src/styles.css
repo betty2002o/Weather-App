@@ -26,6 +26,12 @@
   font-size: 30px;
   color: #3346575e;
 }
+
+.today-weather-icon {
+  width: 150px;
+  height: 150px;
+}
+
 .city-location {
   font-size: 40px;
   margin-left: 20px;
@@ -40,13 +46,7 @@
   text-align: center;
 }
 .current-temp {
-  font-size: 50px;
-  height: 60px;
-  font-weight: bold;
-}
-
-.display-unit {
-  font-size: 50px;
+  font-size: 75px;
   height: 60px;
   font-weight: bold;
 }
@@ -150,4 +150,13 @@ button {
 .source-code:hover {
   text-decoration: underline;
   color: blue;
+}
+
+.units .active {
+  cursor: default;
+  border-radius: 50%;
+  padding: 0px;
+  border: 2px solid white;
+  color: white;
+  font-size: 25px;
 }
