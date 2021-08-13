@@ -82,6 +82,8 @@ function replaceTemp(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
 
+  currentWeatherIcon.setAttribute("alt", response.data.weather[0].description);
+
   //let currentWindDirection = document.querySelector(".wind-direction");
   //let windDirection = response.data.wind.deg;
 
@@ -141,3 +143,15 @@ function getLocation() {
 }
 let clickCurrent = document.querySelector("#search-button-current");
 clickCurrent.addEventListener("click", getLocation);
+
+//default: setting default city to Taipei
+
+function defaultCity(city) {
+  let key = "83a749915ff8adf28c051c8c3b142608";
+  let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`;
+  axios.get(weatherUrl).then(replaceTemp);
+  let displayedUnit = document.querySelector(".display-unit");
+  displayedUnit.innerHTML = `°C`;
+}
+
+defaultCity("Taipei");
