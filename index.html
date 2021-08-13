@@ -33,80 +33,80 @@
       <div class="edge">
         <div class="top-row">
           <div>
-            <span class="city-location">
-              Vancouver
+            <span class="city-location"> Vancouver </span>
+            <span class="float-end">
+              <form class="search-engine">
+                <input
+                  type="search"
+                  placeholder="Search For City"
+                  class="search-box"
+                />
+                <button type="submit" id="search-button">
+                  Search <i class="fas fa-search-location search-icon"></i>
+                </button>
+                <button id="search-button-current">
+                  Current <i class="fas fa-search-location search-icon"></i>
+                </button>
+              </form>
             </span>
-          <span class="float-end">
-            <form class="search-engine">
-              <input
-                type="search"
-                placeholder="Search For City"
-                class="search-box"
-              />
-              <button type="submit" id="search-button">
-                Search <i class="fas fa-search-location search-icon"></i>
-              </button>
-              <button id="search-button-current">
-                Current <i class="fas fa-search-location search-icon"></i>
-              </button>
-            </form>
-          </span>
+          </div>
         </div>
-      </div>
 
+        <br />
+        <div class="date-time">July 27 Tue 7:00 PM</div>
+        <br />
 
-
-      <br />
-      <div class="date-time">
-        July 27 Tue 7:00 PM
-      </div>
-
-      <div class="upper-body">
-        <div class="row justify-content-center">
-          
-          <div class="col-2">
-            <div class="current-temp-weather">
-              <span class="current-temp">
-                26
-              </span>
-              <span class="units">
-                <a href="#" id="celsius" class="active">°C</a>
-                 | 
-                 <a href="#" id="fahrenheit">°F</a></span>
-              <div class="class-weather">
-                Sunny
-              </div>
-            </div>
-          </div>
-          <div class="col-2">
-            <span>
-              <img src=""
-              alt="sunny"
-              id ="weather-icon"
-              class="today-weather-icon">
-            </span>
-          </div>
-          <div class="col-3">
-            <div class="current-condition">
-              <div class="row">
-                <div class="col-12">
-                  <div>
-                    <br />
-                    Wind: 
-                    <span class="wind-speed"> 11 </span>
-                    <span class= "wind-direction"> SW </span>
-                      <span class="wind-unit"> km/h </span>
+        <div class="upper-body">
+          <div class="row">
+            <div class="col-4">
+              <ul class="current-temp-weather">
+                <li>
+                  <div class="clearfix">
+                     <img
+                      src=""
+                      alt="sunny"
+                      id="weather-icon"
+                      class="today-weather-icon float-left"
+                    />
+                    <div class="float-left">
+                      <span class="current-temp"> 26 </span>
+                      <span class="units">
+                        <a href="#" id="celsius" class="active">°C</a>
+                        |
+                        <a href="#" id="fahrenheit">°F</a>
+                      </span>
+                    </div>
                   </div>
-                </div>
-                <div class="col-12">
-                  <div>
-                    Humidity: <span class="current-condition-humidity"> 45 % </span>
-                  </div>
-                </div>
+                </li>
+                <li class="class-weather">Sunny</li>
+                <li >
+                  <div class="row">
+              <div class="col-6 current-condition">
+                Wind:
+                <span class="wind-speed"> 11 </span>
+                <span class="wind-direction"> SW </span>
+                <span class="wind-unit"> km/h </span>
               </div>
+              <div class="col-6 current-condition">
+                Humidity:
+                <span class="current-condition-humidity"> 45 % </span>  
+              </div>
+                </li>
+              </ul>
             </div>
-          </div>
+
+
+            <div class = "col-3">
+
+            </div>
+
+      
+
+
+
           <div class="col-5">
+            
+            <br/>
             <div class="near-future">
               <div class="row">
                 <div class="col-4">
@@ -148,9 +148,7 @@
         </div>
       </div>
 
-      <div class="message-of-the-day">
-        Don't forget your sunscreen!
-      </div>
+      <div class="message-of-the-day">Don't forget your sunscreen!</div>
 
       <div class="next-days">
         <div class="row">
@@ -163,9 +161,7 @@
               <div class="weather">
                 <i class="fas fa-cloud-sun cloud-sun"></i>
               </div>
-              <div class="temp-high-low">
-                25°C/ 17°C
-              </div>
+              <div class="temp-high-low">25°C/ 17°C</div>
             </div>
           </div>
           <div class="col-2">
@@ -177,9 +173,7 @@
               <div class="weather">
                 <i class="fas fa-sun sunny"></i>
               </div>
-              <div class="temp-high-low">
-                24°C/ 16°C
-              </div>
+              <div class="temp-high-low">24°C/ 16°C</div>
             </div>
           </div>
           <div class="col-2">
@@ -191,9 +185,7 @@
               <div class="weather">
                 <i class="fas fa-sun sunny"></i>
               </div>
-              <div class="temp-high-low">
-                27°C/ 18°C
-              </div>
+              <div class="temp-high-low">27°C/ 18°C</div>
             </div>
           </div>
           <div class="col-2">
@@ -205,9 +197,7 @@
               <div class="weather">
                 <i class="fas fa-cloud-sun cloud-sun"></i>
               </div>
-              <div class="temp-high-low">
-                32°C/ 19°C
-              </div>
+              <div class="temp-high-low">32°C/ 19°C</div>
             </div>
           </div>
           <div class="col-2">
@@ -219,9 +209,7 @@
               <div class="weather">
                 <i class="fas fa-cloud-rain rain"></i>
               </div>
-              <div class="temp-high-low">
-                27°C/ 17°C
-              </div>
+              <div class="temp-high-low">27°C/ 17°C</div>
             </div>
           </div>
           <div class="col-2">
@@ -233,17 +221,25 @@
               <div class="weather">
                 <i class="fas fa-cloud-sun cloud-sun"></i>
               </div>
-              <div class="temp-high-low">
-                26°C/ 16°C
-              </div>
+              <div class="temp-high-low">26°C/ 16°C</div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <p class= "credit"> <a href="https://github.com/betty2002o/Weather-App" target="_blank" class ="source-code">Open-source code</a> by Betty Chiang</p>
-    
-    
+    <p class="credit">
+      <a
+        href="https://github.com/betty2002o/Weather-App"
+        target="_blank"
+        class="source-code"
+        >Open-source code</a
+      >
+      by Betty Chiang
+    </p>
+
+
+
+
     <script src="src/index.js"></script>
   </body>
 </html>

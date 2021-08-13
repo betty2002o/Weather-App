@@ -30,6 +30,7 @@
 .today-weather-icon {
   width: 150px;
   height: 150px;
+  float: left;
 }
 
 .city-location {
@@ -40,6 +41,10 @@
 
 .date-time {
   margin-left: 30px;
+}
+
+ul {
+  list-style-type: none;
 }
 
 .current-temp-weather {
@@ -83,14 +88,14 @@ a:hover {
   position: relative;
   top: -35px;
   padding: 10px;
-  line-height: 40px;
+  line-height: 50px;
+  font-size: 25px;
 }
 
 .current-condition {
-  text-align: left;
+  text-align: center;
   line-height: 50px;
-  position: relative;
-  top: -20px;
+  font-size: 20px;
 }
 
 .message-of-the-day {
