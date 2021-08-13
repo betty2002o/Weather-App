@@ -20,12 +20,12 @@ function displayCurrentTime() {
     "Dec",
   ];
   let hour = now.getHours();
-  let minutes = date.getMinutes();
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
-
+  let minute = now.getMinutes();
   let pmtime = hour - 12;
+
+  if (minute < 10) {
+    minute = `0${minute}`;
+  }
 
   let currentTimePM = `${months[month]} ${date} ${days[day]}, ${pmtime} : ${minute} PM`;
   let currentTimeAM = `${months[month]} ${date} ${days[day]}, ${hour} : ${minute} AM`;
