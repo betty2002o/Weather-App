@@ -20,8 +20,13 @@ function displayCurrentTime() {
     "Dec",
   ];
   let hour = now.getHours();
-  let minute = now.getMinutes();
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
   let pmtime = hour - 12;
+
   let currentTimePM = `${months[month]} ${date} ${days[day]}, ${pmtime} : ${minute} PM`;
   let currentTimeAM = `${months[month]} ${date} ${days[day]}, ${hour} : ${minute} AM`;
   let current = document.querySelector(".date-time");
@@ -135,6 +140,8 @@ function displayCurrentLocation(position) {
   let key = "83a749915ff8adf28c051c8c3b142608";
   let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${key}&units=metric`;
   axios.get(weatherUrl).then(replaceTemp);
+  clickTempC.classList.add("active");
+  clickTempF.classList.remove("active");
 }
 
 function getLocation() {

@@ -54,6 +54,8 @@ ul {
   font-size: 75px;
   height: 60px;
   font-weight: bold;
+  position: relative;
+  bottom: -30px;
 }
 
 .units {
@@ -61,6 +63,8 @@ ul {
   vertical-align: top;
   text-decoration: none;
   color: white;
+  position: relative;
+  bottom: -10px;
 }
 
 a {
