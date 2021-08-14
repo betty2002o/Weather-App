@@ -53,7 +53,7 @@
         </div>
 
         <br />
-        <div class="date-time">July 27 Tue 7:00 PM</div>
+        <div class="date-time"></div>
         <br />
 
         <div class="row">
@@ -77,20 +77,11 @@
                   </div>
                 </div>
               </li>
-              <li class="class-weather">Sunny</li>
+              <li class="class-weather"></li>
               <li>
-                <div class="row">
-                  <div class="col-6 current-condition">
-                    Wind:
-                    <span class="wind-speed"> 11 </span>
-                    <span class="wind-direction"> SW </span>
-                    <span class="wind-unit"> km/h </span>
-                  </div>
-                  <div class="col-6 current-condition">
-                    Humidity:
-                    <span class="current-condition-humidity"> 45 % </span>
-                  </div>
-                </div>
+                Feels Like
+                <span class="feellikedegree">0</span>
+                <span class="feelunit"> degree C</span>
               </li>
             </ul>
           </div>
@@ -98,50 +89,32 @@
           <div class="col-3"></div>
 
           <div class="col-5">
-            <br />
-            <div class="near-future">
-              <div class="row">
-                <div class="col-4">
-                  <div class="nears">
-                    Tue Evening
-                    <br />
-                    Sunny
-                    <br />
-                    <i class="fas fa-sun sunny"></i>
-                    <br />
-                    23°C
-                  </div>
-                </div>
-                <div class="col-4">
-                  <div class="nears">
-                    Tue Overnight
-                    <br />
-                    Sunny
-                    <br />
-                    <i class="fas fa-moon moon"></i>
-                    <br />
-                    15°C
-                  </div>
-                </div>
-                <div class="col-4">
-                  <div class="nears">
-                    Wed Morning
-                    <br />
-                    Sunny
-                    <br />
-                    <i class="fas fa-sun sunny"></i>
-                    <br />
-                    18°C
-                  </div>
-                </div>
-              </div>
-            </div>
+            <ul class="current-condition">
+              <li>
+                Wind:
+                <span class="wind-speed"> 11 </span>
+                <span class="wind-direction"> SW </span>
+                <span class="wind-unit"> km/h </span>
+              </li>
+              <li>
+                Humidity:
+                <span class="current-condition-humidity"> 45 % </span>
+              </li>
+              <li class="PoP">
+                Precipitation:
+                <span class="POP"> 20</span> %
+              </li>
+              <li>
+                Air Quality:
+                <span class="air-quality"> 1~5 </span>
+              </li>
+            </ul>
           </div>
+
+          <div class="message-of-the-day"></div>
+
+          <div class="next-days"></div>
         </div>
-
-        <div class="message-of-the-day"></div>
-
-        <div class="next-days"></div>
       </div>
       <p class="credit">
         <a

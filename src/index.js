@@ -1,9 +1,10 @@
 //  get date
 let now = new Date();
+
 function displayCurrentTime() {
   let day = now.getDay();
   let days = ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"];
-  let date = now.getDate();
+  let dates = now.getDate();
   let month = now.getMonth();
   let months = [
     "Jan",
@@ -27,8 +28,8 @@ function displayCurrentTime() {
     minute = `0${minute}`;
   }
 
-  let currentTimePM = `${months[month]} ${date} ${days[day]}, ${pmtime} : ${minute} PM`;
-  let currentTimeAM = `${months[month]} ${date} ${days[day]}, ${hour} : ${minute} AM`;
+  let currentTimePM = `${months[month]} ${dates} ${days[day]}, ${pmtime} : ${minute} PM`;
+  let currentTimeAM = `${months[month]} ${dates} ${days[day]}, ${hour} : ${minute} AM`;
   let current = document.querySelector(".date-time");
 
   if (hour >= 12) {
@@ -153,14 +154,19 @@ clickCurrent.addEventListener("click", getLocation);
 // forecast the next few days highest + lowest weather in metric
 function dailyForecastAPIMetric(response) {
   let key = "83a749915ff8adf28c051c8c3b142608";
-  let dailyForcastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${response.lat}&lon=${response.lon}&exclude=current,minutely&appid=${key}&units=metric`;
+  let dailyForcastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${response.lat}&lon=${response.lon}&exclude=minutely&appid=${key}&units=metric`;
   axios.get(dailyForcastUrl).then(displayForecast);
+
+  feellikeunit = document.querySelector(".feelunit");
+  feellikeunit.innerHTML = `°C`;
 }
 
 function dailyForecastAPIImperial(response) {
   let key = "83a749915ff8adf28c051c8c3b142608";
-  let dailyForcastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${response.lat}&lon=${response.lon}&exclude=current,minutely&appid=${key}&units=imperial`;
+  let dailyForcastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${response.lat}&lon=${response.lon}&exclude=minutely&appid=${key}&units=imperial`;
   axios.get(dailyForcastUrl).then(displayForecast);
+  feellikeunit = document.querySelector(".feelunit");
+  feellikeunit.innerHTML = `°F`;
 }
 
 function formatDay(timestamp) {
@@ -188,6 +194,7 @@ function formatDay(timestamp) {
 }
 
 function displayForecast(response) {
+  console.log(response);
   let forecastElement = document.querySelector(".next-days");
   forecastRow = `<div class="row">`;
   let daily = response.data.daily;
@@ -221,12 +228,16 @@ function displayForecast(response) {
 
   let alert = document.querySelector(".message-of-the-day");
   alert.innerHTML = `Warning: ${response.data.alerts[0].event}!`;
+
+  let feelingtemp = document.querySelector(".feellikedegree");
+  let feelTempRound = Math.round(response.data.current.feels_like);
+  feelingtemp.innerHTML = `${feelTempRound}`;
 }
 
 function metricOrNot() {
   let result;
   if (element.classList.contains("active")) {
-    result = `°C `;
+    result = `°C`;
   } else {
     result = `°F`;
   }
