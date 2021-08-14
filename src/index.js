@@ -218,6 +218,9 @@ function displayForecast(response) {
 
   forecastRow = forecastRow + `</div>`;
   forecastElement.innerHTML = forecastRow;
+
+  let alert = document.querySelector(".message-of-the-day");
+  alert.innerHTML = `Warning: ${response.data.alerts[0].event}!`;
 }
 
 function metricOrNot() {
