@@ -87,12 +87,7 @@ function replaceTemp(response) {
 
   currentWeatherIcon.setAttribute("alt", response.data.weather[0].description);
 
-  //let currentWindDirection = document.querySelector(".wind-direction");
-  //let windDirection = response.data.wind.deg;
-
-  //function direction(degree) {
-  //  currentWindDirection.innerHTML = `${degree}`;
-  // }
+  dailyForecastAPI(response.data.coord);
 }
 
 // click on F or C to change Temp
@@ -152,28 +147,63 @@ let clickCurrent = document.querySelector("#search-button-current");
 clickCurrent.addEventListener("click", getLocation);
 
 // forecast the next few days highest + lowest weather
-function displayForecast() {
+function dailyForecastAPI(response) {
+  let key = "83a749915ff8adf28c051c8c3b142608";
+  let dailyForcastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${response.lat}&lon=${response.lon}&exclude=current,minutely&appid=${key}&units=metric`;
+  axios.get(dailyForcastUrl).then(displayForecast);
+}
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let dates = date.getDate();
+  let month = date.getMonth();
+  let months = [
+    "Jan",
+    "Feb",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "Aug",
+    "Sept",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+
+  return `${months[month]} / ${dates} <br/> ${days[day]}`;
+}
+
+function displayForecast(response) {
   let forecastElement = document.querySelector(".next-days");
   forecastRow = `<div class="row">`;
-  let days = ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
-  days.forEach(function (day) {
-    forecastRow =
-      forecastRow +
-      `
-  <div class="col-2">
-  <div class="tmr">
-    7/28
-    <br/>
-    ${day}
-    </div>
-    <img src="http://openweathermap.org/img/wn/10d@2x.png"
-    alt = "cloudy" class="tmr-weather-icon"/>
-    <div class="tmr-temp">
-    <span>23°C /</span>
-    <span> 15°C</span>
-    </div>
-    </div>
-        `;
+  let daily = response.data.daily;
+  console.log(daily);
+  daily.forEach(function (forecastDays, index) {
+    if (index < 6) {
+      forecastRow =
+        forecastRow +
+        `
+      <div class="col-2">
+      <div class="tmr">
+      ${formatDay(forecastDays.dt)}
+      </div>
+      <img 
+      src="http://openweathermap.org/img/wn/${
+        forecastDays.weather[0].icon
+      }@2x.png"
+      alt = "cloudy" class="tmr-weather-icon"/>
+      <div class="tmr-temp">
+      <span>${Math.round(forecastDays.temp.max)}</span>
+      /
+      <span> ${Math.round(forecastDays.temp.min)} °C</span>
+      </div>
+      </div>
+      `;
+    }
   });
 
   forecastRow = forecastRow + `</div>`;
