@@ -87,9 +87,13 @@ function replaceTemp(response) {
 
   currentWeatherIcon.setAttribute("alt", response.data.weather[0].description);
 
-  dailyForecastAPI(response.data.coord);
+  if (element.classList.contains("active")) {
+    dailyForecastAPIMetric(response.data.coord);
+  } else {
+    dailyForecastAPIImperial(response.data.coord);
+  }
 }
-
+let element = document.querySelector("#celsius");
 // click on F or C to change Temp
 
 function converttoImperial(event) {
@@ -146,10 +150,16 @@ function getLocation() {
 let clickCurrent = document.querySelector("#search-button-current");
 clickCurrent.addEventListener("click", getLocation);
 
-// forecast the next few days highest + lowest weather
-function dailyForecastAPI(response) {
+// forecast the next few days highest + lowest weather in metric
+function dailyForecastAPIMetric(response) {
   let key = "83a749915ff8adf28c051c8c3b142608";
   let dailyForcastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${response.lat}&lon=${response.lon}&exclude=current,minutely&appid=${key}&units=metric`;
+  axios.get(dailyForcastUrl).then(displayForecast);
+}
+
+function dailyForecastAPIImperial(response) {
+  let key = "83a749915ff8adf28c051c8c3b142608";
+  let dailyForcastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${response.lat}&lon=${response.lon}&exclude=current,minutely&appid=${key}&units=imperial`;
   axios.get(dailyForcastUrl).then(displayForecast);
 }
 
@@ -181,7 +191,6 @@ function displayForecast(response) {
   let forecastElement = document.querySelector(".next-days");
   forecastRow = `<div class="row">`;
   let daily = response.data.daily;
-  console.log(daily);
   daily.forEach(function (forecastDays, index) {
     if (index < 6) {
       forecastRow =
@@ -197,9 +206,10 @@ function displayForecast(response) {
       }@2x.png"
       alt = "cloudy" class="tmr-weather-icon"/>
       <div class="tmr-temp">
-      <span>${Math.round(forecastDays.temp.max)}</span>
+      <span class="tempHigh">${Math.round(forecastDays.temp.max)}</span>
       /
-      <span> ${Math.round(forecastDays.temp.min)} °C</span>
+      <span class="tempLow"> ${Math.round(forecastDays.temp.min)}</span>
+      <span class= "dailyUnit"> ${metricOrNot()} </span>
       </div>
       </div>
       `;
@@ -208,6 +218,16 @@ function displayForecast(response) {
 
   forecastRow = forecastRow + `</div>`;
   forecastElement.innerHTML = forecastRow;
+}
+
+function metricOrNot() {
+  let result;
+  if (element.classList.contains("active")) {
+    result = `°C `;
+  } else {
+    result = `°F`;
+  }
+  return result;
 }
 
 //default: setting default city to Taipei
