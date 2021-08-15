@@ -93,6 +93,8 @@ function replaceTemp(response) {
   } else {
     dailyForecastAPIImperial(response.data.coord);
   }
+
+  airQualityAPI(response.data.coord);
 }
 let element = document.querySelector("#celsius");
 // click on F or C to change Temp
@@ -151,7 +153,7 @@ function getLocation() {
 let clickCurrent = document.querySelector("#search-button-current");
 clickCurrent.addEventListener("click", getLocation);
 
-// forecast the next few days highest + lowest weather in metric
+// forecast the next few days highest + lowest weather in metric + pop + feel_like
 function dailyForecastAPIMetric(response) {
   let key = "83a749915ff8adf28c051c8c3b142608";
   let dailyForcastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${response.lat}&lon=${response.lon}&exclude=minutely&appid=${key}&units=metric`;
@@ -194,7 +196,9 @@ function formatDay(timestamp) {
 }
 
 function displayForecast(response) {
-  console.log(response);
+  let popElement = document.querySelector(".POP");
+  let popPercentElement = response.data.daily[0].pop * 100;
+  popElement.innerHTML = `${popPercentElement}`;
   let forecastElement = document.querySelector(".next-days");
   forecastRow = `<div class="row">`;
   let daily = response.data.daily;
@@ -227,7 +231,9 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastRow;
 
   let alert = document.querySelector(".message-of-the-day");
-  alert.innerHTML = `Warning: ${response.data.alerts[0].event}!`;
+  if (response.data["alerts"] !== undefined) {
+    alert.innerHTML = `Warning: ${response.data.alerts[0].event}!`;
+  }
 
   let feelingtemp = document.querySelector(".feellikedegree");
   let feelTempRound = Math.round(response.data.current.feels_like);
@@ -244,6 +250,18 @@ function metricOrNot() {
   return result;
 }
 
+// air quality
+function airQualityAPI(response) {
+  let key = "83a749915ff8adf28c051c8c3b142608";
+  let airQualityUrl = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${response.lat}&lon=${response.lon}&appid=${key}`;
+  axios.get(airQualityUrl).then(displayAirQuality);
+}
+
+function displayAirQuality(response) {
+  airQualityElement = document.querySelector(".air-quality");
+  airQualityElement.innerHTML = `${response.data.list[0].main.aqi}`;
+}
+
 //default: setting default city to Taipei
 
 function defaultCity(city) {
@@ -252,5 +270,11 @@ function defaultCity(city) {
   axios.get(weatherUrl).then(replaceTemp);
 }
 
-defaultCity("Taipei");
-displayForecast();
+let Taipei = {
+  name: "Taipei",
+  lat: 25.0478,
+  lon: 121.5319,
+};
+
+defaultCity(Taipei.name);
+dailyForecastAPIMetric(Taipei);
