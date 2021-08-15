@@ -207,7 +207,7 @@ function displayForecast(response) {
       forecastRow =
         forecastRow +
         `
-      <div class="col-2">
+      <div class="col-2 row-width">
       <div class="tmr">
       ${formatDay(forecastDays.dt)}
       </div>

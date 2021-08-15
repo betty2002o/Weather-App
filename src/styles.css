@@ -8,24 +8,6 @@
   background: linear-gradient(-225deg, #5d9fff 0%, #b8dcff 60%, #6bbbff 90%);
   color: white;
 }
-.sunny {
-  color: #fff134;
-  font-size: 30px;
-}
-
-.moon {
-  color: #e9e5cf;
-  font-size: 30px;
-}
-.cloud-sun {
-  font-size: 30px;
-  color: #ffd255;
-}
-
-.rain {
-  font-size: 30px;
-  color: #3346575e;
-}
 
 .today-weather-icon {
   width: 150px;
@@ -35,12 +17,13 @@
 
 .city-location {
   font-size: 40px;
-  margin-left: 20px;
+  margin-left: 25px;
   font-weight: bold;
 }
 
 .date-time {
   margin-left: 30px;
+  font-size: 23px;
 }
 
 ul {
@@ -49,6 +32,10 @@ ul {
 
 .current-temp-weather {
   text-align: center;
+  border: 3px solid white;
+  border-radius: 75px;
+  padding: 5px;
+  margin-left: 50px;
 }
 .current-temp {
   font-size: 75px;
@@ -59,7 +46,7 @@ ul {
 }
 
 .units {
-  font-size: 30px;
+  font-size: 20px;
   vertical-align: top;
   text-decoration: none;
   color: white;
@@ -91,35 +78,20 @@ a:hover {
   padding: 0px;
 }
 
-.sunny-today {
-  font-size: 90px;
+.current-condition {
   text-align: left;
-}
-
-.near-future {
-  text-align: center;
-  width: 100%;
-  position: relative;
-  top: -35px;
-  padding: 10px;
   line-height: 50px;
   font-size: 25px;
-}
-
-.current-condition {
-  text-align: center;
-  line-height: 50px;
-  font-size: 20px;
+  margin-top: 10px;
 }
 
 .message-of-the-day {
   font-family: "Caveat", cursive;
   font-size: 25px;
   text-align: center;
-  margin: 0, auto;
-  margin-bottom: 30px;
+  padding: 10px;
+  margin: 0px, auto;
   position: relative;
-  top: -10px;
   text-decoration: underline;
   font-weight: bold;
   color: red;
@@ -131,6 +103,7 @@ a:hover {
 form {
   line-height: 30px;
   font-size: 20px;
+  margin-top: 7px;
 }
 .search-box {
   background-color: rgb(255, 255, 255);
@@ -169,6 +142,12 @@ button {
 
 .next-days {
   text-align: center;
-  line-height: 40px;
-  font-size: 30px;
+  line-height: 30px;
+  font-size: 20px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.tmr-temp {
+  font-size: 25px;
 }
