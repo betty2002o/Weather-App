@@ -97,6 +97,7 @@ function replaceTemp(response) {
   }
 
   airQualityAPI(response.data.coord);
+  console.log(response);
 }
 let element = document.querySelector("#celsius");
 // click on F or C to change Temp
@@ -194,7 +195,7 @@ function formatDay(timestamp) {
     "Dec",
   ];
 
-  return `${months[month]} / ${dates} <br/> ${days[day]}`;
+  return `${months[month]}  ${dates} <br/> ${days[day]}`;
 }
 
 function displayForecast(response) {
@@ -221,7 +222,7 @@ function displayForecast(response) {
       <div class="tmr-temp">
       <span class="tempHigh">${Math.round(forecastDays.temp.max)}</span>
       /
-      <span class="tempLow"> ${Math.round(forecastDays.temp.min)}</span>
+      <span class="tempLow">${Math.round(forecastDays.temp.min)}</span>
       <span class= "dailyUnit"> ${metricOrNot()} </span>
       </div>
       </div>

@@ -151,3 +151,7 @@ button {
 .tmr-temp {
   font-size: 25px;
 }
+
+.tempLow {
+  opacity: 0.8;
+}
