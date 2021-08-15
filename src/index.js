@@ -97,7 +97,6 @@ function replaceTemp(response) {
   }
 
   airQualityAPI(response.data.coord);
-  console.log(response);
 }
 let element = document.querySelector("#celsius");
 // click on F or C to change Temp
