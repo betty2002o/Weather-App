@@ -49,6 +49,8 @@ function replaceLocation(event) {
   let unit = "metric";
   let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchedLocation.value}&units=${unit}&appid=${key}`;
   axios.get(weatherUrl).then(replaceTemp);
+  clickTempC.classList.add("active");
+  clickTempF.classList.remove("active");
 }
 
 let clickSearch = document.querySelector("#search-button");
