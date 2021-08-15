@@ -45,7 +45,7 @@ displayCurrentTime(now);
 function replaceLocation(event) {
   event.preventDefault();
   let searchedLocation = document.querySelector(".search-box");
-  let key = "83a749915ff8adf28c051c8c3b142608";
+  let key = "d644b9988fe5d63076ea48bfe2d4dc1b";
   let unit = "metric";
   let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchedLocation.value}&units=${unit}&appid=${key}`;
   axios.get(weatherUrl).then(replaceTemp);
@@ -105,7 +105,7 @@ function converttoImperial(event) {
   event.preventDefault();
   let cityDisplayed = document.querySelector(".city-location");
   let city = cityDisplayed.innerHTML;
-  let key = "83a749915ff8adf28c051c8c3b142608";
+  let key = "d644b9988fe5d63076ea48bfe2d4dc1b";
   let unit = "imperial";
   let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${key}`;
   axios.get(weatherUrl).then(replaceTemp);
@@ -121,7 +121,7 @@ function converttoMetric(event) {
   event.preventDefault();
   let cityDisplayed = document.querySelector(".city-location");
   let city = cityDisplayed.innerHTML;
-  let key = "83a749915ff8adf28c051c8c3b142608";
+  let key = "d644b9988fe5d63076ea48bfe2d4dc1b";
   let unit = "metric";
   let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${key}`;
   axios.get(weatherUrl).then(replaceTemp);
@@ -141,7 +141,7 @@ clickTempC.addEventListener("click", converttoMetric);
 // click on current to fetch current locations
 
 function displayCurrentLocation(position) {
-  let key = "83a749915ff8adf28c051c8c3b142608";
+  let key = "d644b9988fe5d63076ea48bfe2d4dc1b";
   let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${key}&units=metric`;
   axios.get(weatherUrl).then(replaceTemp);
   clickTempC.classList.add("active");
@@ -157,7 +157,7 @@ clickCurrent.addEventListener("click", getLocation);
 
 // forecast the next few days highest + lowest weather in metric + pop + feel_like
 function dailyForecastAPIMetric(response) {
-  let key = "83a749915ff8adf28c051c8c3b142608";
+  let key = "d644b9988fe5d63076ea48bfe2d4dc1b";
   let dailyForcastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${response.lat}&lon=${response.lon}&exclude=minutely&appid=${key}&units=metric`;
   axios.get(dailyForcastUrl).then(displayForecast);
 
@@ -166,7 +166,7 @@ function dailyForecastAPIMetric(response) {
 }
 
 function dailyForecastAPIImperial(response) {
-  let key = "83a749915ff8adf28c051c8c3b142608";
+  let key = "d644b9988fe5d63076ea48bfe2d4dc1b";
   let dailyForcastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${response.lat}&lon=${response.lon}&exclude=minutely&appid=${key}&units=imperial`;
   axios.get(dailyForcastUrl).then(displayForecast);
   feellikeunit = document.querySelector(".feelunit");
@@ -254,7 +254,7 @@ function metricOrNot() {
 
 // air quality
 function airQualityAPI(response) {
-  let key = "83a749915ff8adf28c051c8c3b142608";
+  let key = "d644b9988fe5d63076ea48bfe2d4dc1b";
   let airQualityUrl = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${response.lat}&lon=${response.lon}&appid=${key}`;
   axios.get(airQualityUrl).then(displayAirQuality);
 }
@@ -267,7 +267,7 @@ function displayAirQuality(response) {
 //default: setting default city to Taipei
 
 function defaultCity(city) {
-  let key = "83a749915ff8adf28c051c8c3b142608";
+  let key = "d644b9988fe5d63076ea48bfe2d4dc1b";
   let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`;
   axios.get(weatherUrl).then(replaceTemp);
 }
