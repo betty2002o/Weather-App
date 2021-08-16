@@ -95,8 +95,6 @@ function replaceTemp(response) {
   } else {
     dailyForecastAPIImperial(response.data.coord);
   }
-
-  airQualityAPI(response.data.coord);
 }
 let element = document.querySelector("#celsius");
 // click on F or C to change Temp
@@ -235,6 +233,8 @@ function displayForecast(response) {
   let alert = document.querySelector(".message-of-the-day");
   if (response.data["alerts"] !== undefined) {
     alert.innerHTML = `Warning: ${response.data.alerts[0].event}!`;
+  } else {
+    ``;
   }
 
   let feelingtemp = document.querySelector(".feellikedegree");
@@ -250,18 +250,6 @@ function metricOrNot() {
     result = `°F`;
   }
   return result;
-}
-
-// air quality
-function airQualityAPI(response) {
-  let key = "d644b9988fe5d63076ea48bfe2d4dc1b";
-  let airQualityUrl = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${response.lat}&lon=${response.lon}&appid=${key}`;
-  axios.get(airQualityUrl).then(displayAirQuality);
-}
-
-function displayAirQuality(response) {
-  airQualityElement = document.querySelector(".air-quality");
-  airQualityElement.innerHTML = `${response.data.list[0].main.aqi}`;
 }
 
 //default: setting default city to Taipei
