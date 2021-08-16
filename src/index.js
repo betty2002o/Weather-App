@@ -20,23 +20,24 @@ function displayCurrentTime() {
     "Nov",
     "Dec",
   ];
-  let hour = now.getHours();
   let minute = now.getMinutes();
+  let hour = now.getHours();
   let pmtime = hour - 12;
 
   if (minute < 10) {
     minute = `0${minute}`;
   }
 
-  let currentTimePM = `${months[month]} ${dates} ${days[day]}, ${pmtime} : ${minute} PM`;
-  let currentTimeAM = `${months[month]} ${dates} ${days[day]}, ${hour} : ${minute} AM`;
+  let currentTimePM = `${months[month]} ${dates} ${days[day]}, 0${pmtime} : ${minute} PM`;
+  let currentTimeAM = `${months[month]} ${dates} ${days[day]}, 0${hour} : ${minute} AM`;
   let current = document.querySelector(".date-time");
 
-  if (hour >= 12) {
+  if (hour >= 13) {
     current.innerHTML = `${currentTimePM}`;
   } else {
     current.innerHTML = `${currentTimeAM}`;
   }
+  console.log(hour);
 }
 displayCurrentTime(now);
 
@@ -231,10 +232,10 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastRow;
 
   let alert = document.querySelector(".message-of-the-day");
-  if (response.data["alerts"] !== undefined) {
+  if (response.data.hasOwnProperty(`alerts`)) {
     alert.innerHTML = `Warning: ${response.data.alerts[0].event}!`;
   } else {
-    ``;
+    alert.innerHTML = ``;
   }
 
   let feelingtemp = document.querySelector(".feellikedegree");
