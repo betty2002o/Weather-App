@@ -30,30 +30,44 @@
 
   <body>
     <div class="container">
-      <div class="edge">
+      <div class="edge" id="edge">
         <div class="top-row">
-          <div>
-            <span class="city-location"> Vancouver </span>
-            <span class="float-end">
-              <form class="search-engine">
-                <input
-                  type="search"
-                  placeholder="Search For City"
-                  class="search-box"
-                />
-                <button type="submit" id="search-button">
-                  Search <i class="fas fa-search-location search-icon"></i>
-                </button>
-                <button id="search-button-current">
-                  Current <i class="fas fa-search-location search-icon"></i>
-                </button>
-              </form>
-            </span>
-          </div>
+          <span class="city-location"> Vancouver </span>
+          <button
+            class="theme-btn dark float-end "
+            type="button"
+            onclick="setTheme('dark')"
+            title="Dark mode"
+          >
+            Dark Theme
+          </button>
+          <button
+            class=" float-end theme-btn light""
+            type="button"
+            onclick="setTheme('light')"
+            title="Light mode"
+          >
+            Light Theme
+          </button>
         </div>
 
+        <span class="date-time"></span>
+        <span class="float-end">
+          <form class="search-engine">
+            <input
+              type="search"
+              placeholder="Search For City"
+              class="search-box"
+            />
+            <button type="submit" id="search-button">
+              Search <i class="fas fa-search-location search-icon"></i>
+            </button>
+            <button id="search-button-current">
+              Current <i class="fas fa-search-location search-icon"></i>
+            </button>
+          </form>
+        </span>
         <br />
-        <div class="date-time"></div>
         <br />
 
         <div class="row">
@@ -91,17 +105,17 @@
           <div class="col-4">
             <ul class="current-condition">
               <li>
-                Wind :
+                <i class="fas fa-wind"></i> Wind :
                 <span class="wind-speed"> 11 </span>
                 <span class="wind-direction"> SW </span>
                 <span class="wind-unit"> km/h </span>
               </li>
               <li>
-                Humidity :
+                <i class="fas fa-tint"></i> Humidity :
                 <span class="current-condition-humidity"> 45 % </span>
               </li>
               <li class="PoP">
-                Precipitation :
+                <i class="fas fa-cloud-rain"></i> Precipitation :
                 <span class="POP"> 20</span> %
               </li>
             </ul>

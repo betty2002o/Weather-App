@@ -1,3 +1,36 @@
+:root,
+:root.light {
+  --bg-color: #6bbaffb6;
+  --text-color: white;
+}
+
+:root.dark {
+  --bg-color: #121212;
+  --text-color: white;
+}
+
+button {
+  background: transparent;
+  border: white solid 1px;
+  color: white;
+  cursor: pointer;
+  border-radius: 20px;
+  width: 130px;
+}
+
+.theme-btn.light {
+  display: none;
+}
+
+.dark .theme-btn.light {
+  display: block;
+  background-color: black;
+}
+
+.dark .theme-btn.dark {
+  display: none;
+}
+
 .edge {
   margin: 20px auto;
   padding: 30px;
@@ -5,7 +38,12 @@
   border: 2px solid #5d9fff;
   font-family: "Indie Flower", cursive;
   font-size: 20px;
-  background: linear-gradient(-225deg, #5d9fff 0%, #b8dcff 60%, #6bbbff 90%);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.dark-mode {
+  background-color: black;
   color: white;
 }
 
@@ -80,9 +118,9 @@ a:hover {
 
 .current-condition {
   text-align: left;
-  line-height: 50px;
+  line-height: 60px;
   font-size: 25px;
-  margin-top: 10px;
+  margin-top: 25px;
 }
 
 .message-of-the-day {
@@ -103,7 +141,6 @@ a:hover {
 form {
   line-height: 30px;
   font-size: 20px;
-  margin-top: 7px;
 }
 .search-box {
   background-color: rgb(255, 255, 255);
@@ -114,16 +151,6 @@ form {
   text-align: center;
   border: inset;
   width: 250px;
-}
-
-button {
-  background: #6ea8fe;
-  color: white;
-  cursor: pointer;
-  border-radius: 20px;
-  width: 130px;
-  border: white;
-  padding-top: 5px;
 }
 
 .credit {

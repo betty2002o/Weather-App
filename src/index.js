@@ -1,3 +1,7 @@
+// theme button
+
+const setTheme = (theme) => (document.documentElement.className = theme);
+
 //  get date
 let now = new Date();
 
